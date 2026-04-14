@@ -4,18 +4,24 @@ Airflow 도입(2025.03-2026.01) 프로젝트의
 통합 후 아키텍처를 시각화한다.
 """
 
-from diagrams import Cluster, Diagram, Edge
-from diagrams.aws.analytics import Athena, GlueDataCatalog
-from diagrams.aws.compute import EC2
-from diagrams.aws.database import RDS
-from diagrams.aws.storage import S3
-from diagrams.onprem.client import User
-from diagrams.onprem.workflow import Airflow
-from diagrams.onprem.analytics import Tableau
-
 import os
 
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "images")
+from diagrams import Cluster, Diagram, Edge
+from diagrams.custom import Custom
+from diagrams.onprem.client import User
+from diagrams.onprem.workflow import Airflow
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ICONS = os.path.join(BASE_DIR, "..", "images", "aws-icons")
+OUTPUT_DIR = os.path.join(BASE_DIR, "..", "images")
+
+# 아이콘 경로
+IC_RDS = os.path.join(ICONS, "Databases", "Arch_Amazon-RDS_64.png")
+IC_EC2 = os.path.join(ICONS, "Compute", "Arch_Amazon-EC2_64.png")
+IC_S3 = os.path.join(ICONS, "Storage", "Arch_Amazon-Simple-Storage-Service_64.png")
+IC_GLUE = os.path.join(ICONS, "Analytics", "Arch_AWS-Glue_64.png")
+IC_ATHENA = os.path.join(ICONS, "Analytics", "Arch_Amazon-Athena_64.png")
+IC_REDASH = os.path.join(BASE_DIR, "..", "images", "third-party", "redash.png")
 
 with Diagram(
     "",
@@ -31,18 +37,18 @@ with Diagram(
     node_attr={"fontcolor": "#e6edf3"},
     edge_attr={"color": "#4ade80", "fontcolor": "#8b949e"},
 ):
-    mysql = RDS("MySQL\nService DB")
+    mysql = Custom("MySQL\nService DB", IC_RDS)
 
     with Cluster("EC2 (c7i)", graph_attr={"bgcolor": "#161b22", "fontcolor": "#8b949e"}):
         airflow = Airflow("Airflow\n478 DAGs")
 
     with Cluster("Storage", graph_attr={"bgcolor": "#161b22", "fontcolor": "#8b949e"}):
-        s3_data = S3("S3\nData Lake")
-        s3_log = S3("S3\nLogs")
+        s3_data = Custom("S3\nData Lake", IC_S3)
+        s3_log = Custom("S3\nLogs", IC_S3)
 
-    catalog = GlueDataCatalog("Glue\nData Catalog")
-    athena = Athena("Athena")
-    redash = Tableau("Redash")
+    catalog = Custom("Glue\nData Catalog", IC_GLUE)
+    athena = Custom("Athena", IC_ATHENA)
+    redash = Custom("Redash", IC_REDASH)
     users = User("전사 사용자")
 
     mysql >> Edge(label="추출·가공") >> airflow >> s3_data
