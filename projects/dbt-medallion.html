@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dbt + 메달리온 아키텍처 도입 | sanghun.dev</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">sanghun.dev</a>
+      <ul class="nav__links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#career">Career</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="project-detail">
+    <div class="container">
+      <a href="../index.html#projects" class="project-detail__back">&larr; 프로젝트 목록</a>
+
+      <h1 class="project-detail__title">dbt + 메달리온 아키텍처 도입</h1>
+
+      <div class="project-detail__meta">
+        <span>2026.01 &mdash; 진행중</span>
+        <span>단독 프로젝트 (설계, 구현)</span>
+      </div>
+
+      <div class="project-detail__metrics-bar">
+        <span class="metric">iron/bronze/silver/gold 4단계</span>
+        <span class="metric">Iceberg MERGE INTO</span>
+        <span class="metric">dbt ref() 자동 종속성</span>
+      </div>
+
+      <div class="project-detail__content">
+
+        <h2>배경</h2>
+        <p>
+          데이터 가공 과정에서 테이블 간 종속성이 꼬여 있었습니다. 어떤 테이블이 어떤 테이블을 참조하는지 파악하려면 코드를 모두 뒤져봐야 했고, 같은 지표가 다른 소스를 참조하여 동일 지표인데 다른 숫자가 나오는 상황이 발생했습니다.
+        </p>
+        <p>
+          종속성이 한 방향으로만 흐르는 구조와 지표의 <strong>Single Source of Truth</strong>가 필요했습니다.
+        </p>
+
+        <h2>Iceberg 도입</h2>
+        <p>
+          기존 Hive 테이블은 DROP 후 CTAS로 전체 리프레시하거나, 파티션 삭제 후 INSERT INTO로 업데이트하는 방식이었습니다. 하루라도 꼬이면 중복이나 누락이 발생했습니다.
+        </p>
+        <p>
+          Iceberg의 <strong>MERGE INTO</strong>(upsert)로 이 문제를 구조적으로 해결했습니다.
+        </p>
+
+        <h2>dbt 도입</h2>
+        <p>
+          기존에는 테이블 하나를 관리하는 데 MERGE INTO, CTAS, DROP TABLE 세 개의 Airflow DAG가 필요했습니다.
+        </p>
+        <ul>
+          <li>dbt는 <strong>materialization</strong>으로 테이블 생성/갱신을 자동 관리합니다.</li>
+          <li><strong>ref()</strong>로 테이블 간 종속성을 자동 매핑합니다.</li>
+          <li><strong>dbt docs</strong>로 문서 사이트를 자동 생성합니다.</li>
+        </ul>
+
+        <h2>메달리온 구조</h2>
+        <p>4단계 메달리온 아키텍처를 설계했습니다.</p>
+        <ul>
+          <li><strong>iron</strong> &mdash; S3 raw 데이터를 Hive 외부 테이블로 매핑. CREATE EXTERNAL TABLE이 Hive만 지원하므로 이 단계가 필요합니다.</li>
+          <li><strong>bronze</strong> &mdash; Hive에서 Iceberg로 변환. MERGE INTO가 가능해집니다.</li>
+          <li><strong>silver</strong> &mdash; fact/dim 테이블로 정규화합니다.</li>
+          <li><strong>gold</strong> &mdash; 비즈니스 집계 테이블입니다.</li>
+        </ul>
+        <p>
+          MetricFlow semantic model과 metrics로 SSOT 구현을 시도했으나 AWS Athena가 미지원하여 향후 과제로 남겨두었습니다.
+        </p>
+
+        <h2>현재 상태</h2>
+        <p>
+          iron/bronze 단계는 완료했고, silver 설계를 위한 리서치를 진행 중입니다. Redash 최근 30일 쿼리에서 지표를 추출하고, bronze 칼럼을 역추적하여 silver 설계 근거를 확보하고 있습니다.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 이상훈</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

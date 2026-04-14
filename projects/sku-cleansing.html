@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKU 데이터 클렌징 자동화 | sanghun.dev</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">sanghun.dev</a>
+      <ul class="nav__links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#career">Career</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Detail -->
+  <section class="project-detail">
+    <div class="container">
+      <a href="../index.html#projects" class="project-detail__back">&larr; Projects</a>
+      <h1 class="project-detail__title">SKU 데이터 클렌징 자동화</h1>
+      <div class="project-detail__meta">
+        <span>2021.07 &mdash; 2022.01</span>
+        <span>인턴 (자발적 프로젝트, 단독 개발)</span>
+      </div>
+      <div class="project-detail__metrics-bar">
+        <span class="metric">8시간 &rarr; 40분</span>
+        <span class="metric">90% 시간 절감</span>
+        <span class="metric">패턴 390개</span>
+      </div>
+
+      <div class="project-detail__content">
+        <h2>배경</h2>
+        <p>
+          리본즈는 291개 파트너로부터 매일 6,000~10,000건의 상품 재고 데이터를 수신합니다.
+          동일 상품이 파트너마다 다른 명칭으로 들어오기 때문에, 이를 하나의 상품으로 묶을 고유 식별자(SKU)가 필요했습니다.
+        </p>
+        <p>
+          SKU로 상품을 묶어 네이버 쇼핑에 통합 노출하면 스토어 매출을 높일 수 있었지만,
+          기존에는 담당자 한 명이 수작업으로 <strong>하루 종일(약 8시간)</strong> 처리하고 있었습니다.
+        </p>
+
+        <h2>접근 방식</h2>
+        <p>
+          인턴이었던 저는 이 수작업을 반복하는 과정에서 자동화 가능성을 발견하고,
+          <strong>지시 없이 자발적으로</strong> 자동 추출 시스템을 기획하고 개발했습니다.
+        </p>
+
+        <h2>기술 진화</h2>
+        <p>시스템은 5번의 기술 진화를 거쳤습니다.</p>
+        <ul>
+          <li><strong>v1</strong> &mdash; pandas + 반복문으로 초기 구현</li>
+          <li><strong>v2</strong> &mdash; pandas 내장함수 활용으로 성능 개선</li>
+          <li><strong>v3</strong> &mdash; SQL 전환으로 처리 로직 단순화</li>
+          <li><strong>v4</strong> &mdash; 전체 자동화 파이프라인 구축</li>
+          <li><strong>v5</strong> &mdash; Google Sheet &rarr; AWS Glue 테이블로 패턴 관리 이관</li>
+        </ul>
+
+        <h2>설계 판단</h2>
+        <p>
+          기술적으로 가장 중요한 판단은 <strong>패턴과 코드의 분리</strong>였습니다.
+          정규표현식 패턴을 코드에 하드코딩하지 않고 별도 파일로 관리하여,
+          파이썬을 모르는 스토어팀도 패턴을 추가하고 수정할 수 있도록 설계했습니다.
+        </p>
+        <p>최종 패턴 규모:</p>
+        <ul>
+          <li>SKU 정규표현식 <strong>220개</strong></li>
+          <li>브랜드 패턴 <strong>89개</strong></li>
+          <li>옵션값 통일 패턴 <strong>81개</strong></li>
+        </ul>
+
+        <h2>성과</h2>
+        <ul>
+          <li>처리 시간: <strong>8시간 &rarr; 40분</strong> (90% 절감)</li>
+          <li>총 390개의 정규표현식 패턴으로 상품 식별 자동화</li>
+          <li>비개발자도 패턴을 직접 관리할 수 있는 구조 확보</li>
+          <li>이 프로젝트의 성과를 인정받아 <strong>정규직 전환</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 이상훈</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

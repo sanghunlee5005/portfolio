@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이상훈 | Data Engineer</title>
+  <meta name="description" content="데이터 파이프라인이 없는 환경에서 Airflow를 설계하고 구축해서 운영하는 데이터 엔지니어 이상훈의 포트폴리오.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">sanghun.dev</a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <p class="hero__greeting">안녕하세요, 저는</p>
+      <h1 class="hero__name">이상훈</h1>
+      <p class="hero__tagline">데이터 파이프라인이 없는 환경에서 Airflow를 설계하고 구축해서 현재까지 운영하고 있으며, 문제를 만나면 근본까지 깊이 파고들어 해결해내는 것을 즐기는 데이터 엔지니어입니다.</p>
+      <div class="hero__links">
+        <a href="https://github.com/sanghunlee5005" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:sanghun.lee.5005@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p class="section-subtitle">데이터 엔지니어 4년차</p>
+      <div class="about__text">
+        <p>
+          <strong>리본즈</strong>(명품 렌트&middot;빈티지 플랫폼)에서 2021년 인턴으로 시작해 현재까지 데이터 엔지니어로 일하고 있습니다.
+          최대 4명이었던 팀에서 팀원이 순차 퇴사하여, 2025년 초부터 <strong>데이터 파이프라인, 모델링, 분석&middot;시각화 전반을 단독 담당</strong>하고 있습니다.
+        </p>
+        <p style="margin-top: 16px;">
+          편한 길 대신 직접 만드는 길을 선택하고, 실패하면 근본까지 파고들어 해결하는 사람입니다.
+          MWAA 대신 EC2에 직접 Airflow를 구축하고, 메모리 누수를 직접 진단해서 docker-compose를 재설계한 경험이 저를 가장 잘 설명합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="stack" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-subtitle">주로 사용하는 기술</p>
+
+      <p class="tech-category">Orchestration</p>
+      <div class="tech-grid">
+        <span class="tech-tag">Apache Airflow</span>
+      </div>
+
+      <p class="tech-category">Container</p>
+      <div class="tech-grid">
+        <span class="tech-tag">Docker</span>
+      </div>
+
+      <p class="tech-category">Language</p>
+      <div class="tech-grid">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">pandas</span>
+        <span class="tech-tag">SQL</span>
+      </div>
+
+      <p class="tech-category">Data Modeling</p>
+      <div class="tech-grid">
+        <span class="tech-tag">dbt</span>
+      </div>
+
+      <p class="tech-category">Table Format</p>
+      <div class="tech-grid">
+        <span class="tech-tag">Apache Hive</span>
+        <span class="tech-tag">Apache Iceberg</span>
+      </div>
+
+      <p class="tech-category">Cloud</p>
+      <div class="tech-grid">
+        <span class="tech-tag">AWS EC2</span>
+        <span class="tech-tag">AWS S3</span>
+        <span class="tech-tag">AWS Athena</span>
+        <span class="tech-tag">AWS Glue</span>
+      </div>
+
+      <p class="tech-category">BI</p>
+      <div class="tech-grid">
+        <span class="tech-tag">Redash</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">인턴 자발적 자동화 &rarr; 팀 인프라 설계 &rarr; 혼자 전체 통합 &rarr; 데이터 품질&middot;거버넌스 &rarr; 비즈니스 이해</p>
+
+      <div class="projects-grid">
+
+        <a href="./projects/sku-cleansing.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">SKU 데이터 클렌징 자동화</span>
+            <span class="project-card__period">2021.07 &ndash; 2022.01</span>
+          </div>
+          <p class="project-card__desc">인턴 시절 자발적으로 시작한 상품 식별자 자동 추출 시스템. 5번의 기술 진화를 거쳐 비개발자도 관리할 수 있는 구조로 설계.</p>
+          <div class="project-card__metrics">
+            <span class="metric">8시간 &rarr; 40분</span>
+            <span class="metric">90% 시간 절감</span>
+            <span class="metric">패턴 390개</span>
+          </div>
+        </a>
+
+        <a href="./projects/data-pipeline.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">데이터 파이프라인 설계&middot;도입</span>
+            <span class="project-card__period">2022.07 &ndash; 2023.03</span>
+          </div>
+          <p class="project-card__desc">파이프라인이 없던 환경에서 0&rarr;1로 분석 인프라를 구축. MySQL 직접 쿼리에서 S3 + Athena 기반 분석 환경으로 전환.</p>
+          <div class="project-card__metrics">
+            <span class="metric">0 &rarr; 1 파이프라인</span>
+            <span class="metric">Athena + S3</span>
+          </div>
+        </a>
+
+        <a href="./projects/airflow.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">Airflow 워크플로우 플랫폼 구축</span>
+            <span class="project-card__period">2025.03 &ndash; 2026.01</span>
+          </div>
+          <p class="project-card__desc">4곳에 분산된 인프라를 단일 Airflow 플랫폼으로 통합. 메모리 누수 진단 후 docker-compose 재설계로 안정화.</p>
+          <div class="project-card__metrics">
+            <span class="metric">478 DAG</span>
+            <span class="metric">CPU 90% &rarr; 10%</span>
+            <span class="metric">연 400만원 절감</span>
+          </div>
+        </a>
+
+        <a href="./projects/dbt-medallion.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">dbt + 메달리온 아키텍처 도입</span>
+            <span class="project-card__period">2026.01 &ndash; 진행중</span>
+          </div>
+          <p class="project-card__desc">테이블 간 종속성 꼬임과 지표 불일치 문제를 해결하기 위해 4단계 메달리온 구조와 dbt를 도입.</p>
+          <div class="project-card__metrics">
+            <span class="metric">iron/bronze/silver/gold</span>
+            <span class="metric">Iceberg MERGE INTO</span>
+          </div>
+        </a>
+
+        <a href="./projects/roc-dashboard.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">물류센터 운영 대시보드</span>
+            <span class="project-card__period">2022.07 &ndash; 2022.08</span>
+          </div>
+          <p class="project-card__desc">물류센터를 직접 방문하여 3개 팀을 인터뷰하고, 액션&rarr;데이터 흐름을 파악하여 전사 운영 현황 대시보드를 제작.</p>
+          <div class="project-card__metrics">
+            <span class="metric">현장 방문 + 인터뷰</span>
+            <span class="metric">전사 대시보드</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section id="career" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Career</h2>
+      <p class="section-subtitle">리본즈에서의 여정</p>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <span class="timeline__year">2021.07</span>
+          <p class="timeline__title">인턴 입사 &mdash; BI팀</p>
+          <p class="timeline__desc">SKU 데이터 클렌징 자동화 프로젝트를 자발적으로 시작</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__year">2022.01</span>
+          <p class="timeline__title">정규직 전환</p>
+          <p class="timeline__desc">SKU 자동화 성과를 인정받아 정규직 전환. OKR 기반 프로젝트 참여</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__year">2022.07</span>
+          <p class="timeline__title">데이터 파이프라인 구축 시작</p>
+          <p class="timeline__desc">AWS Athena + S3 기반 분석 환경 0&rarr;1 구축. Redash 도입으로 전사 데이터 접근성 확보</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__year">2025.03</span>
+          <p class="timeline__title">Airflow 도입 &mdash; 단독 프로젝트</p>
+          <p class="timeline__desc">팀원 전원 퇴사 후 4곳 분산 인프라를 단일 Airflow 플랫폼으로 통합. 478 DAG 운영</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__year">2026.01</span>
+          <p class="timeline__title">dbt + 메달리온 아키텍처 도입</p>
+          <p class="timeline__desc">iron/bronze/silver/gold 4단계 구조 설계. 데이터 품질과 Single Source of Truth 구현 중</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">연락은 편하게 주세요</p>
+      <div class="contact__links">
+        <a href="mailto:sanghun.lee.5005@gmail.com" class="contact__link">sanghun.lee.5005@gmail.com</a>
+        <a href="https://github.com/sanghunlee5005" target="_blank" rel="noopener" class="contact__link">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 이상훈</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

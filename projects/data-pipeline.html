@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데이터 파이프라인 설계·도입 | sanghun.dev</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">sanghun.dev</a>
+      <ul class="nav__links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#career">Career</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Detail -->
+  <section class="project-detail">
+    <div class="container">
+      <a href="../index.html#projects" class="project-detail__back">&larr; Projects</a>
+      <h1 class="project-detail__title">데이터 파이프라인 설계&middot;도입</h1>
+      <div class="project-detail__meta">
+        <span>2022.07 &mdash; 2023.03</span>
+        <span>BI팀 (3명 협업, 기획 및 개발)</span>
+      </div>
+      <div class="project-detail__metrics-bar">
+        <span class="metric">0 &rarr; 1 파이프라인</span>
+        <span class="metric">Athena + S3</span>
+        <span class="metric">Redash 도입</span>
+      </div>
+
+      <div class="project-detail__content">
+        <h2>배경</h2>
+        <p>
+          리본즈에는 데이터 파이프라인이 존재하지 않았습니다.
+          서비스 DB(MySQL) 레플리카에 직접 쿼리를 날려 데이터를 추출하는 방식이었고,
+          대시보드 수요는 계속 늘어나고 있었습니다.
+        </p>
+
+        <h2>시도 과정</h2>
+        <p>BI팀 3명이 함께 여러 방안을 검토했습니다.</p>
+        <ul>
+          <li><strong>분석 전용 MySQL RDS</strong> &mdash; OLTP 특성상 대량 분석 쿼리에 한계</li>
+          <li><strong>MWAA(Managed Airflow)</strong> &mdash; 팀 전체의 Python 역량이 부족하여 보류</li>
+          <li><strong>AWS Athena</strong> &mdash; S3 기반 서버리스 쿼리 엔진으로 최종 선택</li>
+        </ul>
+
+        <h2>최종 아키텍처</h2>
+        <p>
+          저는 S3 계층 구조를 <strong>raw / core / output</strong> 3단계로 기획했습니다.
+        </p>
+        <ul>
+          <li><strong>AWS Glue Crawler</strong>로 스키마 자동 인식 &rarr; Data Catalog 생성</li>
+          <li><strong>Spark 기반 병렬 분산 처리</strong>로 데이터 적재</li>
+          <li><strong>Redash</strong>를 도입하여 전사 데이터 접근성 확보</li>
+        </ul>
+        <p>최종 구조는 다음 4곳의 인프라로 구성되었습니다.</p>
+        <ul>
+          <li><strong>Glue</strong> &mdash; 대부분의 테이블 처리</li>
+          <li><strong>Mac Studio</strong> &mdash; 대용량 테이블 처리</li>
+          <li><strong>EC2</strong> &mdash; 가공 스크립트 실행</li>
+          <li><strong>DW MySQL</strong> &mdash; 최종 적재</li>
+        </ul>
+
+        <h2>성과와 한계</h2>
+        <p><strong>성과:</strong></p>
+        <ul>
+          <li>데이터 파이프라인 0 &rarr; 1 구축</li>
+          <li>서비스 DB 직접 쿼리 의존 탈피</li>
+          <li>Redash 도입으로 비개발 직군도 데이터에 접근 가능</li>
+        </ul>
+        <p><strong>한계:</strong></p>
+        <ul>
+          <li>4곳에 인프라가 분산되어 관리 포인트가 많음</li>
+          <li>S3 디렉토리 컨벤션 미준수로 일관성 부족</li>
+        </ul>
+        <p>
+          이 한계들은 이후 <strong>Airflow 워크플로우 플랫폼 구축</strong> 프로젝트에서 해결되었습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 이상훈</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

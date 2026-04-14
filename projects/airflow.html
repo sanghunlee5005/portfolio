@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airflow 워크플로우 플랫폼 구축 | sanghun.dev</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">sanghun.dev</a>
+      <ul class="nav__links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#career">Career</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Detail -->
+  <section class="project-detail">
+    <div class="container">
+      <a href="../index.html#projects" class="project-detail__back">&larr; Projects</a>
+      <h1 class="project-detail__title">Airflow 워크플로우 플랫폼 구축</h1>
+      <div class="project-detail__meta">
+        <span>2025.03 &mdash; 2026.01</span>
+        <span>단독 프로젝트 (설계, 구축, 운영 전담)</span>
+      </div>
+      <div class="project-detail__metrics-bar">
+        <span class="metric">478 DAG</span>
+        <span class="metric">CPU 90% &rarr; 10%</span>
+        <span class="metric">RAM 100% &rarr; 22%</span>
+        <span class="metric">재시작 1시간 &rarr; 5분</span>
+        <span class="metric">연 400만원 절감</span>
+      </div>
+
+      <div class="project-detail__content">
+        <h2>배경</h2>
+        <p>
+          팀원이 한 명씩 퇴사하여 2025년 초 데이터 파이프라인 관리 인력이 저 혼자가 되었습니다.
+          기존 인프라는 <strong>AWS Glue, Mac Studio, EC2, DW MySQL</strong> 4곳에 분산되어 있었고,
+          특정 Job이 실패했을 때 4곳을 모두 뒤져봐야 했습니다.
+        </p>
+        <p>
+          혼자서 유지하려면 <strong>관리 포인트를 하나로 통합</strong>하는 것이 필수였습니다.
+        </p>
+
+        <h2>왜 직접 구축했나</h2>
+        <p>
+          2022년에 팀 차원에서 Airflow를 검토했으나 Python 역량 부족으로 포기한 적이 있었습니다.
+          이후 개인적으로 터미널 환경을 깊이 익혔습니다.
+          Neovim으로 LSP, 린팅, 포매팅, 디버깅을 배우면서
+          Airflow를 직접 구축할 수 있다는 자신감을 갖게 되었습니다.
+        </p>
+        <p>
+          관리형 서비스(MWAA) 대신 <strong>EC2에 Docker Compose로 직접 구축</strong>하는 방식을 선택했습니다.
+          인프라를 직접 통제할 수 있어야 문제 발생 시 빠르게 대응할 수 있기 때문입니다.
+        </p>
+
+        <h2>마이그레이션 전략</h2>
+        <p>
+          마이그레이션은 <strong>소스코드를 건드리지 않는 것</strong>을 원칙으로 삼았습니다.
+          기존 함수를 그대로 task화하여 <strong>1 DAG 1 task</strong> 형태로 먼저 옮기는 전략을 취했습니다.
+        </p>
+        <ul>
+          <li><strong>4월</strong> &mdash; Glue Job 마이그레이션</li>
+          <li><strong>6월</strong> &mdash; Mac Studio 스크립트 마이그레이션</li>
+          <li><strong>9월</strong> &mdash; 전체 레포지토리 통합 완료, 총 478개 DAG</li>
+        </ul>
+        <p>
+          Slave2 &rarr; S3 덤프 작업은 <strong>TaskFlow 동적 태스크 매핑</strong>으로 병렬 처리하여
+          1시간 걸리던 작업을 5~10분으로 단축했습니다.
+        </p>
+
+        <h2>메모리 누수 해결</h2>
+        <p>
+          Airflow 3 메이저 업그레이드 후 <strong>2일마다 메모리가 100%에 도달</strong>하며 서버가 다운되는 문제가 발생했습니다.
+        </p>
+        <p>
+          처음에는 자체 코드 문제로 판단하여 대규모 리팩토링을 진행했으나 해결되지 않았습니다.
+          이후 공식 docker-compose 구성을 분석하여 근본 원인을 찾았습니다.
+        </p>
+        <ul>
+          <li>불필요한 서비스(<strong>Redis, Worker, Flower</strong>) 제거</li>
+          <li>로그를 <strong>S3 원격 저장</strong>으로 전환하여 디스크 부하 제거</li>
+          <li><strong>Scheduler가 Worker를 대체</strong>하도록 아키텍처 재설계</li>
+        </ul>
+
+        <h2>성과</h2>
+        <ul>
+          <li>4곳 분산 인프라 &rarr; <strong>단일 Airflow 플랫폼</strong>으로 통합</li>
+          <li>총 <strong>478개 DAG</strong> 운영</li>
+          <li>EC2 인스턴스: r7i(메모리 최적화) &rarr; <strong>c7i(컴퓨팅 최적화)</strong>로 전환</li>
+          <li>CPU 사용률: 90~100% &rarr; <strong>평균 10%</strong></li>
+          <li>RAM 사용률: 2일마다 100% &rarr; <strong>평균 22%</strong></li>
+          <li>장애 복구: 재시작 1시간 &rarr; <strong>5분</strong></li>
+          <li>AWS Glue 제거로 <strong>연 400만원 비용 절감</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 이상훈</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
