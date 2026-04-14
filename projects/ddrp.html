@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDRP — 렌트 상품 관리 자동화 | sanghun.dev</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">sanghun.dev</a>
+      <ul class="nav__links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#career">Career</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="project-detail">
+    <div class="container">
+      <a href="../index.html#projects" class="project-detail__back">&larr; Projects</a>
+
+      <h1 class="project-detail__title">DDRP &mdash; 렌트 상품 관리 자동화</h1>
+
+      <div class="project-detail__meta">
+        <span>2024.01 &mdash; 2024.06</span>
+        <span>OKR &ldquo;레인보우&rdquo; (단독 수행)</span>
+      </div>
+
+      <div class="project-detail__metrics-bar">
+        <span class="metric">상품 자동 분류</span>
+        <span class="metric">가격 자동 변동</span>
+        <span class="metric">렌트&rarr;판매 자동화</span>
+      </div>
+
+      <div class="project-detail__content">
+
+        <h2>배경</h2>
+        <p>
+          DDRP(Data Driven Rental Products)는 렌트 상품의 생애주기를 데이터 기반으로 관리하는 프로젝트입니다.
+          기존에는 렌트 상품의 가격 조정, 판매 전환 판단 등이 수작업으로 이루어지고 있었습니다.
+          유저 액션 로그를 활용하여 이 과정을 자동화하고자 했습니다.
+        </p>
+
+        <h2>핵심 지표 개발</h2>
+        <p>
+          유저 액션 로그(조회, 찜, 렌트 신청 등)를 기반으로 상품의 인기도와 수요를 측정하는 핵심 지표를 개발했습니다.
+          이 지표를 통해 상품을 자동으로 분류하고, 각 분류에 맞는 운영 전략을 적용할 수 있게 했습니다.
+        </p>
+
+        <h2>자동화 시스템</h2>
+        <ul>
+          <li><strong>상품 자동 분류</strong> &mdash; 유저 액션 로그 기반으로 상품의 수요 등급을 자동 판정</li>
+          <li><strong>가격 자동 변동</strong> &mdash; 수요와 가동률에 따라 일렌트료(일일 렌트 가격)를 자동 조정</li>
+          <li><strong>렌트&rarr;판매 전환</strong> &mdash; 렌트 수요가 낮은 상품을 판매로 전환할지 자동 판단</li>
+          <li><strong>판매가격 변동</strong> &mdash; 판매 전환 시 적정 가격을 자동 산출</li>
+        </ul>
+
+        <h2>역할</h2>
+        <p>
+          2024년 상반기 OKR &ldquo;레인보우&rdquo; 프로젝트로, 지표 설계부터 자동화 시스템 구축까지 단독으로 수행했습니다.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 이상훈</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

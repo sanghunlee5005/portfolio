@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색 개선 | sanghun.dev</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">sanghun.dev</a>
+      <ul class="nav__links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#stack">Stack</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#career">Career</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="project-detail">
+    <div class="container">
+      <a href="../index.html#projects" class="project-detail__back">&larr; Projects</a>
+
+      <h1 class="project-detail__title">검색 개선</h1>
+
+      <div class="project-detail__meta">
+        <span>2023.07 &mdash; 2023.12</span>
+        <span>OKR &ldquo;써치&rdquo; (빈승혁님과 공동 진행)</span>
+      </div>
+
+      <div class="project-detail__metrics-bar">
+        <span class="metric">동의어 사전</span>
+        <span class="metric">비즈니스별 오더링</span>
+        <span class="metric">글로벌 오더링</span>
+      </div>
+
+      <div class="project-detail__content">
+
+        <h2>배경</h2>
+        <p>
+          명품 플랫폼 특성상 동일 상품이 다양한 표현으로 검색됩니다.
+          &ldquo;샤넬 클래식&rdquo;과 &ldquo;chanel classic flap&rdquo;이 같은 상품이지만 다른 결과를 보여주는 문제가 있었습니다.
+          또한 검색 결과의 정렬이 단순하여 사용자가 원하는 상품을 빠르게 찾기 어려웠습니다.
+        </p>
+
+        <h2>동의어 사전 작성</h2>
+        <p>
+          브랜드명, 상품명, 카테고리 등에서 사용되는 동의어를 수집하고 사전을 작성했습니다.
+          한영 혼용, 약어, 별칭 등을 포괄하여 검색 커버리지를 높였습니다.
+        </p>
+
+        <h2>오더링 로직 개발</h2>
+        <p>
+          유저 액션 로그(조회, 클릭, 구매 등)를 기반으로 검색 결과 정렬 로직을 개발했습니다.
+        </p>
+        <ul>
+          <li><strong>비즈니스별 오더링</strong> &mdash; 렌트, 빈티지 등 비즈니스 유형마다 다른 가중치를 적용</li>
+          <li><strong>글로벌 오더링</strong> &mdash; 비즈니스를 넘어 전체 검색에 적용되는 통합 정렬 로직으로 확장</li>
+        </ul>
+
+        <h2>역할</h2>
+        <p>
+          빈승혁님과 함께 2023년 하반기 OKR &ldquo;써치&rdquo; 프로젝트로 진행했습니다.
+          동의어 사전 작성과 오더링 로직 개발을 담당했습니다.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 이상훈</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
