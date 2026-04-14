@@ -15,15 +15,15 @@
       <a href="#hero" class="nav__logo">sanghun.dev</a>
       <ul class="nav__links">
         <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
         <li><a href="#stack">Stack</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#career">Career</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- 1. 인적사항 + 한 줄 소개 -->
   <section id="hero" class="hero">
     <div class="container">
       <p class="hero__greeting">안녕하세요, 저는</p>
@@ -37,21 +37,13 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- 2. 학력 + 소개 -->
   <section id="about" class="fade-in">
     <div class="container">
       <h2 class="section-title">About</h2>
-      <p class="section-subtitle">데이터 엔지니어 4년차 &middot; 고려대학교 환경생태공학부 졸업</p>
+      <p class="section-subtitle">고려대학교 환경생태공학부 | 2015.03 &mdash; 2026.02 졸업</p>
       <div class="about__text">
         <p>
-          <strong>리본즈</strong>에서 2021년 인턴으로 시작해 현재까지 데이터 엔지니어로 일하고 있습니다.
-          리본즈는 명품 렌트를 주력으로 빈티지&middot;판매까지 통합한 커머스 플랫폼으로,
-          시리즈 A 105억원을 유치하고 <strong>누적 회원 160만, MAU 최대 50만, 일 인터랙션 로그 최대 300만 건</strong> 규모입니다.
-        </p>
-        <p style="margin-top: 16px;">
-          최대 4명이었던 팀에서 팀원이 순차 퇴사하여, 2025년 초부터 <strong>데이터 파이프라인, 모델링, 분석&middot;시각화 전반을 단독 담당</strong>하고 있습니다.
-        </p>
-        <p style="margin-top: 16px;">
           편한 길 대신 직접 만드는 길을 선택하고, 실패하면 근본까지 파고들어 해결하는 사람입니다.
           MWAA 대신 EC2에 직접 Airflow를 구축하고, 메모리 누수를 직접 진단해서 docker-compose를 재설계한 경험이 저를 가장 잘 설명합니다.
         </p>
@@ -59,27 +51,54 @@
     </div>
   </section>
 
-  <!-- Tech Stack -->
+  <!-- 3. 경력 -->
+  <section id="career" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Career</h2>
+      <p class="section-subtitle">리본즈에서의 여정</p>
+
+      <div class="about__text" style="margin-bottom: 40px;">
+        <p>
+          <strong>리본즈</strong>는 명품 렌트를 주력으로 빈티지&middot;판매까지 통합한 커머스 플랫폼입니다.
+          시리즈 A 105억원을 유치하고 <strong>누적 회원 160만, MAU 최대 50만, 일 인터랙션 로그 최대 300만 건</strong> 규모입니다.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <span class="timeline__year">2021.07 &mdash; 2021.12</span>
+          <p class="timeline__title">Business Intelligence Team &middot; BI Intern</p>
+          <p class="timeline__desc">SKU 데이터 클렌징 자동화 프로젝트를 자발적으로 시작</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__year">2022.01 &mdash; 2024.04</span>
+          <p class="timeline__title">Data Engineer &amp; Growth Team Data Analyst</p>
+          <p class="timeline__desc">SKU 자동화 성과를 인정받아 정규직 전환. 데이터 파이프라인 0&rarr;1 구축, Redash 도입, OKR 기반 비즈니스 프로젝트 참여</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__year">2024.04 &mdash; 현재</span>
+          <p class="timeline__title">Data Engineer &amp; Rent Team Data Analyst</p>
+          <p class="timeline__desc">팀원 전원 퇴사 후 데이터 파이프라인, 모델링, 분석&middot;시각화 전반을 단독 담당. Airflow 플랫폼 구축, dbt 도입</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 기술 스택 -->
   <section id="stack" class="fade-in">
     <div class="container">
       <h2 class="section-title">Tech Stack</h2>
       <p class="section-subtitle">주로 사용하는 기술</p>
 
-      <p class="tech-category">Orchestration</p>
-      <div class="tech-grid">
-        <span class="tech-tag">Apache Airflow</span>
-      </div>
-
-      <p class="tech-category">Container</p>
-      <div class="tech-grid">
-        <span class="tech-tag">Docker</span>
-      </div>
-
       <p class="tech-category">Language</p>
       <div class="tech-grid">
         <span class="tech-tag">Python</span>
-        <span class="tech-tag">pandas</span>
         <span class="tech-tag">SQL</span>
+      </div>
+
+      <p class="tech-category">Orchestration</p>
+      <div class="tech-grid">
+        <span class="tech-tag">Apache Airflow</span>
       </div>
 
       <p class="tech-category">Data Modeling</p>
@@ -87,10 +106,9 @@
         <span class="tech-tag">dbt</span>
       </div>
 
-      <p class="tech-category">Table Format</p>
+      <p class="tech-category">Container</p>
       <div class="tech-grid">
-        <span class="tech-tag">Apache Hive</span>
-        <span class="tech-tag">Apache Iceberg</span>
+        <span class="tech-tag">Docker</span>
       </div>
 
       <p class="tech-category">Cloud</p>
@@ -101,6 +119,17 @@
         <span class="tech-tag">AWS Glue</span>
       </div>
 
+      <p class="tech-category">Database</p>
+      <div class="tech-grid">
+        <span class="tech-tag">MySQL</span>
+      </div>
+
+      <p class="tech-category">Table Format</p>
+      <div class="tech-grid">
+        <span class="tech-tag">Apache Hive</span>
+        <span class="tech-tag">Apache Iceberg</span>
+      </div>
+
       <p class="tech-category">BI</p>
       <div class="tech-grid">
         <span class="tech-tag">Redash</span>
@@ -108,52 +137,15 @@
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- 5. 경력기술서 (최신순, master/career.md 순서) -->
   <section id="projects" class="fade-in">
     <div class="container">
       <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">자발적 자동화 &rarr; 분석 인프라 구축 &rarr; 데이터 기반 비즈니스 기여 &rarr; 단독 플랫폼 통합 &rarr; 데이터 품질&middot;거버넌스</p>
+      <p class="section-subtitle">경력기술서 &mdash; 최신순</p>
 
       <div class="projects-grid">
 
-        <a href="./projects/sku-cleansing.html" class="project-card">
-          <div class="project-card__header">
-            <span class="project-card__title">SKU 데이터 클렌징 자동화</span>
-            <span class="project-card__period">2021.07 &ndash; 2022.01</span>
-          </div>
-          <p class="project-card__desc">인턴 시절 자발적으로 시작한 상품 식별자 자동 추출 시스템. 5번의 기술 진화를 거쳐 비개발자도 관리할 수 있는 구조로 설계.</p>
-          <div class="project-card__metrics">
-            <span class="metric">8시간 &rarr; 40분</span>
-            <span class="metric">90% 시간 절감</span>
-            <span class="metric">패턴 390개</span>
-          </div>
-        </a>
-
-        <a href="./projects/data-pipeline.html" class="project-card">
-          <div class="project-card__header">
-            <span class="project-card__title">데이터 파이프라인 설계&middot;도입</span>
-            <span class="project-card__period">2022.07 &ndash; 2023.03</span>
-          </div>
-          <p class="project-card__desc">파이프라인이 없던 환경에서 0&rarr;1로 분석 인프라를 구축. MySQL 직접 쿼리에서 S3 + Athena 기반 분석 환경으로 전환.</p>
-          <div class="project-card__metrics">
-            <span class="metric">0 &rarr; 1 파이프라인</span>
-            <span class="metric">Athena + S3</span>
-          </div>
-        </a>
-
-        <a href="./projects/airflow.html" class="project-card">
-          <div class="project-card__header">
-            <span class="project-card__title">Airflow 워크플로우 플랫폼 구축</span>
-            <span class="project-card__period">2025.03 &ndash; 2026.01</span>
-          </div>
-          <p class="project-card__desc">4곳에 분산된 인프라를 단일 Airflow 플랫폼으로 통합. 메모리 누수 진단 후 docker-compose 재설계로 안정화.</p>
-          <div class="project-card__metrics">
-            <span class="metric">478 DAG</span>
-            <span class="metric">CPU 90% &rarr; 10%</span>
-            <span class="metric">연 400만원 절감</span>
-          </div>
-        </a>
-
+        <!-- 1. dbt 도입 -->
         <a href="./projects/dbt-medallion.html" class="project-card">
           <div class="project-card__header">
             <span class="project-card__title">dbt 도입</span>
@@ -161,104 +153,130 @@
           </div>
           <p class="project-card__desc">테이블 간 종속성 꼬임과 지표 불일치 문제를 해결하기 위해 dbt와 4단계 메달리온 구조를 도입.</p>
           <div class="project-card__metrics">
-            <span class="metric">iron/bronze/silver/gold</span>
-            <span class="metric">Iceberg MERGE INTO</span>
+            <span class="metric">dbt, AWS Athena, S3</span>
           </div>
         </a>
 
-        <a href="./projects/roc-dashboard.html" class="project-card">
+        <!-- 2. Airflow 도입 -->
+        <a href="./projects/airflow.html" class="project-card">
           <div class="project-card__header">
-            <span class="project-card__title">물류센터 운영 대시보드</span>
-            <span class="project-card__period">2022.07 &ndash; 2022.08</span>
+            <span class="project-card__title">Airflow 도입</span>
+            <span class="project-card__period">2025.03 &ndash; 2026.01</span>
           </div>
-          <p class="project-card__desc">물류센터를 직접 방문하여 3개 팀을 인터뷰하고, 액션&rarr;데이터 흐름을 파악하여 전사 운영 현황 대시보드를 제작.</p>
+          <p class="project-card__desc">4곳에 분산된 인프라를 단일 Airflow 플랫폼으로 통합. 메모리 누수 진단 후 docker-compose 재설계로 안정화.</p>
           <div class="project-card__metrics">
-            <span class="metric">현장 방문 + 인터뷰</span>
-            <span class="metric">전사 대시보드</span>
+            <span class="metric">Apache Airflow, Docker, AWS EC2</span>
           </div>
         </a>
 
+        <!-- 3. DDRP -->
+        <a href="./projects/ddrp.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">DDRP &mdash; Data Driven Rental Products</span>
+            <span class="project-card__period">2024.01 &ndash; 2024.06</span>
+          </div>
+          <p class="project-card__desc">유저 액션 로그 기반 렌트 상품 관리 자동화. 상품 분류, 가격 자동 변동, 렌트&rarr;판매 전환 판단.</p>
+          <div class="project-card__metrics">
+            <span class="metric">유저 액션 로그 기반 자동화</span>
+          </div>
+        </a>
+
+        <!-- 4. 검색 개선 -->
         <a href="./projects/search.html" class="project-card">
           <div class="project-card__header">
             <span class="project-card__title">검색 개선</span>
             <span class="project-card__period">2023.07 &ndash; 2023.12</span>
           </div>
-          <p class="project-card__desc">동의어 사전 작성과 유저 액션 로그 기반 비즈니스별&middot;글로벌 오더링 로직을 개발하여 검색 품질을 개선.</p>
+          <p class="project-card__desc">동의어 사전 작성과 유저 액션 로그 기반 비즈니스별&middot;글로벌 오더링 로직 개발.</p>
           <div class="project-card__metrics">
-            <span class="metric">동의어 사전</span>
-            <span class="metric">오더링 로직</span>
+            <span class="metric">SQL, Python</span>
           </div>
         </a>
 
-        <a href="./projects/ddrp.html" class="project-card">
+        <!-- 5. AWS Personalize 개인화 추천 (실패) -->
+        <div class="project-card">
           <div class="project-card__header">
-            <span class="project-card__title">DDRP &mdash; 렌트 상품 관리 자동화</span>
-            <span class="project-card__period">2024.01 &ndash; 2024.06</span>
+            <span class="project-card__title">AWS Personalize 개인화 추천 (실패)</span>
+            <span class="project-card__period">2023.03 &ndash; 2023.06</span>
           </div>
-          <p class="project-card__desc">유저 액션 로그 기반으로 렌트 상품을 자동 분류하고, 가격 자동 변동 및 렌트&rarr;판매 전환 판단을 자동화.</p>
+          <p class="project-card__desc">AWS Personalize 기반 개인화 추천 도입 시도. A/B 테스트 진행 후 실패.</p>
           <div class="project-card__metrics">
-            <span class="metric">상품 자동 분류</span>
-            <span class="metric">가격 자동 변동</span>
-            <span class="metric">렌트&rarr;판매 자동화</span>
+            <span class="metric">AWS Personalize</span>
+          </div>
+        </div>
+
+        <!-- 6. 데이터 파이프라인 설계·도입 -->
+        <a href="./projects/data-pipeline.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">데이터 파이프라인 설계&middot;도입</span>
+            <span class="project-card__period">2022.07 &ndash; 2023.03</span>
+          </div>
+          <p class="project-card__desc">서비스 DB 직접 쿼리에서 S3 + Athena 기반 분석 파이프라인으로 전환. 0&rarr;1 구축.</p>
+          <div class="project-card__metrics">
+            <span class="metric">AWS S3, Athena, Glue, EC2, Python</span>
           </div>
         </a>
 
-      </div>
-    </div>
-  </section>
+        <!-- 7. ROC 전체 대시보드 제작 -->
+        <a href="./projects/roc-dashboard.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">ROC 전체 대시보드 제작</span>
+            <span class="project-card__period">2022.07 &ndash; 2022.08</span>
+          </div>
+          <p class="project-card__desc">물류센터 직접 방문, 3팀 인터뷰 후 전체 운영 현황 대시보드 구축.</p>
+          <div class="project-card__metrics">
+            <span class="metric">Redash, SQL</span>
+          </div>
+        </a>
 
-  <!-- Career -->
-  <section id="career" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">Career</h2>
-      <p class="section-subtitle">리본즈에서의 여정</p>
+        <!-- 8. 렌트 캘린더 지표 제작 -->
+        <div class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">렌트 캘린더 지표 제작</span>
+            <span class="project-card__period">2022.07 &ndash; 2022.12</span>
+          </div>
+          <p class="project-card__desc">렌트 상품의 일별 가동률&middot;수익률 등 핵심 지표 설계 및 시각화.</p>
+          <div class="project-card__metrics">
+            <span class="metric">OKR &ldquo;테트리스&rdquo;</span>
+          </div>
+        </div>
 
-      <div class="timeline">
-        <div class="timeline__item">
-          <span class="timeline__year">2021.07</span>
-          <p class="timeline__title">BI Intern 입사</p>
-          <p class="timeline__desc">SKU 데이터 클렌징 자동화 프로젝트를 자발적으로 시작</p>
+        <!-- 9. 상품 인기도 정렬 로직 제작 -->
+        <div class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">상품 인기도 정렬 로직 제작</span>
+            <span class="project-card__period">2022.07 &ndash; 2022.12</span>
+          </div>
+          <p class="project-card__desc">상품 인기도 기반 정렬 로직 개발.</p>
+          <div class="project-card__metrics">
+            <span class="metric">OKR &ldquo;개미지옥&rdquo;</span>
+          </div>
         </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2022.01</span>
-          <p class="timeline__title">정규직 전환 &mdash; Data Engineer &amp; Growth Team Data Analyst</p>
-          <p class="timeline__desc">SKU 자동화 성과를 인정받아 정규직 전환. GA4/GTM 세팅 및 유저 로그 분석 테이블 제작</p>
+
+        <!-- 10. GA4/GTM 세팅 + 유저 로그 분석 테이블 -->
+        <div class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">GA4/GTM 세팅 + 유저 로그 분석 테이블</span>
+            <span class="project-card__period">2022.01 &ndash; 2022.06</span>
+          </div>
+          <p class="project-card__desc">GA4 활용을 위한 GTM 세팅. 유저 로그 분석용 테이블(pageviews, clicks, views) 제작.</p>
+          <div class="project-card__metrics">
+            <span class="metric">GA4, GTM, SQL</span>
+          </div>
         </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2022.07</span>
-          <p class="timeline__title">데이터 파이프라인 구축 시작</p>
-          <p class="timeline__desc">AWS Athena + S3 기반 분석 환경 0&rarr;1 구축. Redash 도입으로 전사 데이터 접근성 확보</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2023.01</span>
-          <p class="timeline__title">BI팀 &rarr; Growth팀 전환</p>
-          <p class="timeline__desc">OKR 기반 비즈니스 프로젝트 참여. 검색 개선, AWS Personalize 추천 시도 등</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2024.01</span>
-          <p class="timeline__title">DDRP &mdash; 렌트 상품 데이터 자동화</p>
-          <p class="timeline__desc">유저 액션 로그 기반 상품 분류, 가격 자동 변동, 렌트&rarr;판매 전환 판단 자동화</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2024.04</span>
-          <p class="timeline__title">Data Engineer &amp; Rent Team Data Analyst</p>
-          <p class="timeline__desc">Growth팀에서 렌트팀으로 이동. 렌트 비즈니스 데이터 전담</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2025.02</span>
-          <p class="timeline__title">팀원 전원 퇴사 &mdash; 단독 담당</p>
-          <p class="timeline__desc">데이터 파이프라인, 모델링, 분석&middot;시각화 전반을 혼자 담당하게 됨</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2025.03</span>
-          <p class="timeline__title">Airflow 도입 &mdash; 단독 프로젝트</p>
-          <p class="timeline__desc">4곳 분산 인프라를 단일 Airflow 플랫폼으로 통합. 478 DAG 운영</p>
-        </div>
-        <div class="timeline__item">
-          <span class="timeline__year">2026.01</span>
-          <p class="timeline__title">dbt 도입</p>
-          <p class="timeline__desc">iron/bronze/silver/gold 4단계 메달리온 구조 설계. 데이터 품질과 Single Source of Truth 구현 중</p>
-        </div>
+
+        <!-- 11. SKU 데이터 클렌징 -->
+        <a href="./projects/sku-cleansing.html" class="project-card">
+          <div class="project-card__header">
+            <span class="project-card__title">SKU 데이터 클렌징</span>
+            <span class="project-card__period">2021.07 &ndash; 2022.01</span>
+          </div>
+          <p class="project-card__desc">정규표현식 기반 SKU 추출 파이프라인 자동화. 일 처리시간 8h &rarr; 40min (90%&darr;).</p>
+          <div class="project-card__metrics">
+            <span class="metric">Python, SQL, AWS Glue, 정규표현식</span>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
